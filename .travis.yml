@@ -4,13 +4,9 @@ elixir:
 otp_release:
   - 19.0
 sudo: false
-env:
-  - TRAVIS_NODE_VERSION="7.6.0"
 addons:
   postgresql: '9.4'
 before_script:
-  - mix deps.get
-  - npm install
   - mix do ecto.create, ecto.migrate
 script: mix test
 deploy:
