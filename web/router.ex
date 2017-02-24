@@ -20,7 +20,9 @@ defmodule Namelos.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Namelos do
-  #   pipe_through :api
-  # end
+  scope "/api", Namelos do
+    pipe_through :api
+
+    resources "/quotes", QuoteController
+  end
 end
