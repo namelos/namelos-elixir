@@ -1,12 +1,15 @@
 language: elixir
 elixir:
-  - 1.4.1
+- 1.4.1
 otp_release:
-  - 19.0
+- 19.0
 sudo: false
 addons:
   postgresql: '9.4'
 before_script:
-  - npm install
-  - mix do ecto.create, ecto.migrate
+- npm install
+- mix do ecto.create, ecto.migrate
 script: mix test
+deploy:
+  api_key:
+    secure: jqgsFewZQFyMKXqC2awGS6IALNqcKt7jeutGmllm9VbBiZe+j8hqrtHbxIRiXyvKPxUbtqqmaa8Y3vNj4sZdgTZsPMi6tu8e+wqChy2s/FFLnpp3Tu/vACUZl4sVRr+Pra/MJH+YX//6EzmmetOcTwQjXzsE9PM/iKg0NyZBYd8zbsZ0hZAjEfkqQqzVFPkPEQvJ39PM/tddkaCPUllTbEhfHjygWtgvIwOxFGFIaA5KjMdcLGpoPUab9S/VTBCtQ9fknp6/YGVgcU3BujLcoPmqL4PWNtMFkUJEd+7BETp3TENDcC0kO7Pqyyxntu1YN57LK2ff1qyjfxxOBDdLUOB5jxQ1vf9IuHcutROX1xjyHYgg1wNsm6ESDnbnWXk2rq/xwxwm9R2UrOyrhddZiQ4bYi06lpUghe/RKlqhycokxJisVGnYAD6GWARQ98rUx6m9R4YBsyNLTzCsyVJuqw1nqCB/t8DOBTuB/jhFoww5c3nAsiReHG+gTsXEgUCFPOm9U2RRV4rEKH5tFBTHOmH/nrhiXjSAxpUbry8cUJEM1JkQfc7s4Jsa2XrZyk/05jLHRY90u0XvDLvAQ05bT+hzYhU1LCfyRpJQWfiMzHKF6dz6Lpa6OPtLrUh/fO729vDwSjZT06vVU86M8qjP5Qh91AtMJPNA350UCaaORyw=
