@@ -24,14 +24,24 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
-      loader: 'babel-loader',
+      use: [{
+        loader: 'babel-loader',
+      }],
       include: path.join(__dirname, 'web/static/js')
     }, {
       test: /\.elm$/,
-      loader: 'elm-webpack-loader?pathToMake=node_modules/.bin/elm-make',
+      use: [{
+        loader: 'elm-webpack-loader',
+        options: {
+          pathToMake: 'node_modules/.bin/elm-make'
+        }
+      }],
       exclude: [/elm-stuff/, /node_modules/]
     }]
+  },
+  resolve: {
+    extensions: ['', '.js', '.elm']
   }
 }
