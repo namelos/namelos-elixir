@@ -1,7 +1,7 @@
-import { AppContainer } from 'react-hot-loader'
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Root from './config/Root'
+// import { AppContainer } from 'react-hot-loader'
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+// import Root from './config/Root'
 
 const rootEl = document.getElementById('app')
 
