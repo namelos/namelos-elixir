@@ -31,3 +31,9 @@ erl_crash.dump
 
 # Node.js
 node_modules
+
+# Elm package
+elm-stuff
+
+# Elm repl
+repl-temp-*

@@ -28,6 +28,10 @@ module.exports = {
       test: /\.js$/,
       loader: 'babel-loader',
       include: path.join(__dirname, 'web/static/js')
+    }, {
+      test: /\.elm$/,
+      loader: 'elm-webpack-loader?pathToMake=node_modules/.bin/elm-make',
+      exclude: [/elm-stuff/, /node_modules/]
     }]
   }
 }
