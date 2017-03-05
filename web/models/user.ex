@@ -9,4 +9,10 @@ defmodule Namelos.User do
 
     timestamps()
   end
+
+  def changeset(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:email])
+    |> validate_length(:email, min: 1, max: 255)
+  end
 end
