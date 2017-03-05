@@ -42,6 +42,6 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.elm']
+    extensions: ['.js', '.elm']
   }
 }
