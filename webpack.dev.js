@@ -33,6 +33,8 @@ module.exports = {
     }, {
       test: /\.elm$/,
       use: [{
+        loader: 'elm-hot-loader'
+      }, {
         loader: 'elm-webpack-loader',
         options: {
           pathToMake: __dirname + '/node_modules/.bin/elm-make',
