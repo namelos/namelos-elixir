@@ -28,6 +28,7 @@ erl_crash.dump
 
 # Jetbrains
 .idea
+*.iml
 
 # Node.js
 node_modules

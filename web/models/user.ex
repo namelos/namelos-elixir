@@ -19,7 +19,7 @@ defmodule Namelos.User do
 
   defp put_pass_hash(changeset) do
     case changeset do
-      %Ecto.Change{valid?: true, changes: %{password: pass}} ->
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
         put_change(changeset, :password_hash, Comeonin.Bcrypt.hashpwsalt(pass))
       _ ->
         changeset
