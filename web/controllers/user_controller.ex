@@ -9,8 +9,12 @@ defmodule Namelos.UserController do
 
   def create(conn, %{"user" => user_params}) do
     changeset = User.changeset(%User{}, user_params)
-    {:ok, user} = Repo.insert(changeset)
 
-    render conn, "show.json", user: user
+    case Repo.insert(changeset) do
+      {:ok, user} ->
+        render conn, "show.json", user: user
+      {:error, changeset} ->
+        render conn, Namelos.ChangesetView, "error.json", changeset: changeset
+    end
   end
 end
