@@ -24,6 +24,6 @@ defmodule Namelos.Router do
     pipe_through :api
 
     resources "/quotes", QuoteController
-    resources "/users", UserController, only: [:create, :index]
+    resources "/users", UserController, only: [:create]
   end
 end
