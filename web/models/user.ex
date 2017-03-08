@@ -1,6 +1,8 @@
 defmodule Namelos.User do
   use Namelos.Web, :model
 
+  @derive {Poison.Encoder, only: [:id, :first_name, :last_name, :email]}
+
   schema "users" do
     field :email, :string
     field :password_hash, :string
