@@ -7,6 +7,8 @@ import { configureStore } from './configureStore'
 
 const store = configureStore()
 
+window.store = store
+
 export default () => <Provider store={store}>
   <div>
     <Router history={browserHistory} routes={routes} />
