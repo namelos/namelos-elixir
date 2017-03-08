@@ -12,9 +12,9 @@ defmodule Namelos.UserControllerTest do
   test "should create user when attrs is valid", %{conn: conn} do
     conn = post conn, user_path(conn, :create), user: @valid_attrs
     body = json_response(conn, 201)
-    assert body["data"]["id"]
-    assert body["data"]["email"]
-    refute body["data"]["password"]
+    assert body["id"]
+    assert body["email"]
+    refute body["password"]
     assert Repo.get_by(User, email: "john@example.com")
   end
 
