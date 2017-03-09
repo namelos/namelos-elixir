@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { call, put } from 'redux-saga/effects'
 
 export const RegisterRequested = 'counter/Register_Requested'
 export const RegisterSucceeded = 'counter/Register_Succeeded'
@@ -20,17 +21,20 @@ export const account = (state = initialState, action) => {
   }
 }
 
-const registerRequested = () =>
-  ({ type: RegisterRequested })
-const registerSucceeded = user =>
-  ({ type: RegisterSucceeded, user })
-const registerFailed = error =>
-  ({ type: RegisterFailed, error })
+export const registerRequested = user => ({ type: RegisterRequested, user })
+const registerSucceeded = user => ({ type: RegisterSucceeded, user })
+const registerFailed = error => ({ type: RegisterFailed, error })
 
-export const register = user => dispatch => {
-  dispatch(registerRequested())
+const register = user =>
   axios.post('/api/users', { user })
-    .then(({ data }) => data)
-    .then(user => dispatch(registerSucceeded(user)))
-    .catch(error => dispatch(registerFailed(error)))
+    .then(res => res.data)
+
+export function* registerUser(action) {
+  try {
+    const user = yield call(register, action.user)
+    yield put(registerSucceeded(user))
+  } catch (error) {
+    yield put(registerFailed(error))
+  }
 }
+

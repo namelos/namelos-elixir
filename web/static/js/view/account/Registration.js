@@ -2,28 +2,28 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { register } from '../../model/account'
+import { registerRequested } from '../../model/account'
 
 const mapState = ({ account }) => ({ user: account.user })
-const mapDispatch = dispatch => bindActionCreators({ register }, dispatch)
+const mapDispatch = dispatch => bindActionCreators({ registerRequested }, dispatch)
 
-let RegistrationForm = ({ handleSubmit, register }) =>
+let RegistrationForm = ({ handleSubmit, registerRequested }) =>
   <form onSubmit={handleSubmit}>
     <p>Registration</p>
 
     <label htmlFor="email">Email</label>
     <Field name="email" component="input"/>
 
-    <label htmlFor="password">Email</label>
-    <Field name="password" component="input"/>
+    <label htmlFor="password">Password</label>
+    <Field name="password" component="input" type="password"/>
 
     <button type="submit">Submit</button>
   </form>
 
 RegistrationForm = reduxForm({ form: 'registration' })(RegistrationForm)
 
-const Registration = ({ register }) => {
-  const handleSubmit = user => register(user)
+const Registration = ({ registerRequested }) => {
+  const handleSubmit = user => registerRequested(user)
   return <RegistrationForm onSubmit={handleSubmit} />
 }
 
