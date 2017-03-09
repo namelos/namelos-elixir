@@ -1,0 +1,19 @@
+# create user
+POST http://localhost:4000/api/users
+Content-Type: application/json
+{
+  "user": {
+    "email": "a@6.com",
+    "password": "123321"
+  }
+}
+
+# login user
+POST http://localhost:4000/api/sessions
+Content-Type: application/json
+{
+  "session": {
+    "email": "a@7.com",
+    "password": "123321"
+  }
+}
