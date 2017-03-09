@@ -13,18 +13,17 @@ defmodule Namelos.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Namelos do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
-  end
-
-  # Other scopes may use custom stacks.
   scope "/api", Namelos do
     pipe_through :api
 
     resources "/quotes", QuoteController
     resources "/users", UserController, only: [:create]
     resources "/sessions", SessionController, only: [:create, :delete]
+  end
+
+  scope "/", Namelos do
+    pipe_through :browser # Use the default browser stack
+
+    get "/*path", PageController, :index
   end
 end
