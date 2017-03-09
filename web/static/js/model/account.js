@@ -34,5 +34,3 @@ export const register = user => dispatch => {
     .then(user => dispatch(registerSucceeded(user)))
     .catch(error => dispatch(registerFailed(error)))
 }
-
-window.register = register
