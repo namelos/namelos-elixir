@@ -1,18 +1,13 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { counterActions } from 'src/model/counter'
 
 const mapState = ({ counter }) => ({ counter })
-const mapDispatch = dispatch => bindActionCreators({
-  increment: counterActions.increment,
-  decrement: counterActions.decrement
-}, dispatch)
 
-export const Counter = ({ counter, increment, decrement }) => <div>
+export const Counter = ({ counter, dispatch }) => <div>
   <div>counter: {counter}</div>
-  <button onClick={increment}>+</button>
-  <button onClick={decrement}>-</button>
+  <button onClick={() => dispatch(counterActions.increment())}>+</button>
+  <button onClick={() => dispatch(counterActions.decrement())}>-</button>
 </div>
 
-export default connect(mapState, mapDispatch)(Counter)
+export default connect(mapState)(Counter)
