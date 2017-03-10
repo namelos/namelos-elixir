@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { call, put } from 'redux-saga/effects'
 
-export const RegisterRequested = 'counter/Register_Requested'
-export const RegisterSucceeded = 'counter/Register_Succeeded'
-export const RegisterFailed = 'counter/Register_Failed'
+export const RegisterRequested = 'register/Register_Requested'
+export const RegisterSucceeded = 'register/Register_Succeeded'
+export const RegisterFailed = 'register/Register_Failed'
 
 const initialState = {
   user: {
