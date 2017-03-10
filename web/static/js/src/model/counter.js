@@ -1,13 +1,19 @@
-export const INCREMENT = 'counter/INCREMENT'
-export const DECREMENT = 'counter/DECREMENT'
+import { createAction } from 'src/lib'
+
+export const COUNTER = {
+  Increment: 'counter/INCREMENT',
+  Decrement: 'counter/DECREMENT'
+}
 
 export const counter = (state = 0, action) => {
   switch(action.type) {
-    case INCREMENT: return state + 1
-    case DECREMENT: return state - 1
-    default:        return state
+    case COUNTER.Increment: return state + 1
+    case COUNTER.Decrement: return state - 1
+    default:                return state
   }
 }
 
-export const increment = () => ({ type: INCREMENT })
-export const decrement = () => ({ type: DECREMENT })
+export const counterActions = {
+  increment: createAction(COUNTER.Increment),
+  decrement: createAction(COUNTER.Decrement)
+}
