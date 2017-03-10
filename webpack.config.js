@@ -2,7 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: './web/static/js/index.js',
+  entry: './web/static/js/src/index.js',
   output: {
     path: path.join(__dirname, 'priv/static/js'),
     filename: 'app.js',
