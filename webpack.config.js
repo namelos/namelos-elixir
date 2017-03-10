@@ -39,6 +39,7 @@ module.exports = {
     }]
   },
   resolve: {
+    modules: ['web/static/js', 'node_modules'],
     extensions: ['.js', '.elm']
   }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { registerRequested } from '../../model/account'
+import { registerRequested } from 'src/model/account'
 
 const mapState = ({ account }) => ({ user: account.user })
 const mapDispatch = dispatch => bindActionCreators({ registerRequested }, dispatch)

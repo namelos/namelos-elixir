@@ -1,5 +1,5 @@
 import test from 'ava'
-import { counter, INCREMENT, DECREMENT } from '../../src/model/counter'
+import { counter, INCREMENT, DECREMENT } from 'src/model/counter'
 
 test('counter should be 0 in the beginning', t => {
   const actual = counter(undefined, { type: 'any' })

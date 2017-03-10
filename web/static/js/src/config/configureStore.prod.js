@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { saga } from '../model'
-import { reducer } from '../model'
+import { saga } from 'src/model'
+import { reducer } from 'src/model'
 
 export const configureStore = initialState => {
   const sagaMiddleware = createSagaMiddleware()

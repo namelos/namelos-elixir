@@ -2,8 +2,8 @@ import React from 'react'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
-import { reducer } from '../model'
-import { routes } from './routes'
+import { reducer } from 'src/model'
+import { routes } from 'src/config/routes'
 
 const store = createStore(reducer)
 

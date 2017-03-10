@@ -3,7 +3,7 @@ import 'babel-polyfill'
 import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Root from './config/Root'
+import Root from 'src/config/Root'
 
 const rootEl = document.getElementById('app')
 

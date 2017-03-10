@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { increment, decrement } from '../model'
+import { increment, decrement } from 'src/model'
 
 const mapState = ({ counter }) => ({ counter })
 const mapDispatch = dispatch => bindActionCreators({ increment, decrement }, dispatch)

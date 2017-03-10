@@ -1,9 +1,9 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router, browserHistory } from 'react-router'
-import { DevTools } from './DevTools'
-import { routes } from './routes'
-import { configureStore } from './configureStore'
+import { DevTools } from 'src/config/DevTools'
+import { routes } from 'src/config/routes'
+import { configureStore } from 'src/config/configureStore'
 
 const store = configureStore()
 

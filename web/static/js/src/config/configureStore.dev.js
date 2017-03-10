@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import createLogger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
-import { saga } from '../model'
-import { reducer } from '../model'
-import { DevTools } from './DevTools'
+import { saga } from 'src/model'
+import { reducer } from 'src/model'
+import { DevTools } from 'src/config/DevTools'
 
 export const configureStore = initialState => {
   const sagaMiddleware = createSagaMiddleware()

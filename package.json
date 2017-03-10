@@ -4,7 +4,7 @@
   "scripts": {
     "start": "mix phoenix.server",
     "build": "node_modules/.bin/webpack --progress --profile --colors",
-    "test": "ava"
+    "test": "NODE_PATH=web/static/js ava"
   },
   "dependencies": {
     "ava": "^0.18.2",
