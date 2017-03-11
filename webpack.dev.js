@@ -5,8 +5,7 @@ const webpack = require('webpack')
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
+    'react-dev-utils/webpackHotDevClient',
     'react-hot-loader/patch',
     './web/static/js/src/index.js'
   ],
