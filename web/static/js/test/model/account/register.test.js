@@ -35,12 +35,18 @@ test('should store exception after request failed', t =>
 test('register user', t => {
   const generator = registerUser(registerActions.requested(validUser))
 
-  let next = generator.next()
-  t.deepEqual(next.value, call(register, validUser))
+  t.deepEqual(
+    generator.next().value,
+    call(register, validUser),
+    'should call register api')
 
-  next = generator.next(validResponse)
-  t.deepEqual(next.value, put(registerActions.succeeded(validResponse)))
+  t.deepEqual(
+    generator.next(validResponse).value,
+    put(registerActions.succeeded(validResponse)),
+    'should dispatch succeeded action after')
 
-  next = generator.throw(errorResponse)
-  t.deepEqual(next.value, put(registerActions.failed(errorResponse)))
+  t.deepEqual(
+    generator.throw(errorResponse).value,
+    put(registerActions.failed(errorResponse)),
+    'should dispatch failed action if an exception was thrown')
 })
