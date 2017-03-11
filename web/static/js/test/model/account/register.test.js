@@ -7,30 +7,26 @@ const validUser = { email: 'john@example.com', password: 'secret' }
 const validResponse = { id: 1, email: 'john@example.com' }
 const errorResponse = { message: 'anyway it just failed' }
 
-const initialState = account(undefined, any)
-test('account should be an empty user in the beginning', t => {
-  t.is(initialState.user.id, null)
-  t.is(initialState.user.email, null)
+test('account reducer on registration', t => {
+  const initialState = account(undefined, any)
+
+  t.is(initialState.user.id, null, 'should have id')
+  t.is(initialState.user.email, null, 'should have email')
+
+  const requestedState = account(initialState, registerActions.requested(validUser))
+
+  t.is(requestedState.user.id, null, 'should not have user id when not resolved')
+  t.is(requestedState.user.email, null, 'should not have user email when not resolved')
+  t.is(requestedState.isFetching, true, 'isFetching should be true when fetching')
+
+  const succeededState = account(initialState, registerActions.succeeded(validResponse))
+  t.is(succeededState.isFetching, false, 'isFetching should be false when resolved')
+  t.deepEqual(succeededState.user, validResponse, 'should set user in state after resolved')
+
+  const failedState = account(initialState, registerActions.failed(errorResponse))
+  t.is(succeededState.isFetching, false, 'isFetching should be false when error')
+  t.deepEqual(failedState.error, errorResponse, 'should set error in state after fetching fails')
 })
-
-const requestedState = account(initialState, registerActions.requested(validUser))
-test('isFetching should be true after register is requested', t => {
-  t.is(requestedState.user.id, null)
-  t.is(requestedState.user.email, null)
-  t.is(requestedState.isFetching, true)
-})
-
-const succeededState = account(initialState, registerActions.succeeded(validResponse))
-test('isFetching should be false after resolve registration', t =>
-  t.is(succeededState.isFetching, false))
-test('should set user id and email after resolve registration', t =>
-  t.deepEqual(succeededState.user, validResponse))
-
-const failedState = account(initialState, registerActions.failed(errorResponse))
-test('isFetching should be false after request failed', t =>
-  t.is(succeededState.isFetching, false))
-test('should store exception after request failed', t =>
-  t.deepEqual(failedState.error, errorResponse))
 
 test('register user', t => {
   const generator = registerUser(registerActions.requested(validUser))
