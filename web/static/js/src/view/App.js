@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 
 const links = [
   { to: "/", text: "Home" },
-  { to: "/registration", text: "Registration" }
+  { to: "/registration", text: "Registration" },
+  { to: "/login", text: "Login" }
 ]
 
 export const App = ({ children }) => <div>
