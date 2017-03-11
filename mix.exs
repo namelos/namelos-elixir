@@ -19,7 +19,7 @@ defmodule Namelos.Mixfile do
   def application do
     [mod: {Namelos, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :absinthe]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,8 @@ defmodule Namelos.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
-     {:guardian, "~> 0.14"}]
+     {:guardian, "~> 0.14"},
+     {:absinthe, "~> 1.2.0"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
