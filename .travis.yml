@@ -9,11 +9,12 @@ addons:
 env:
   - NODE_VERSION="7.7.2"
 before_install:
+  - mix local.hex --force
+  - mix deps.get
   - nvm install $NODE_VERSION
 install:
   - npm install
 before_script:
-  - mix local.hex --force
   - mix do ecto.create, ecto.migrate
 script:
   - mix test
