@@ -40,7 +40,7 @@
   },
   "devDependencies": {},
   "ava": {
-    "require": "babel-register",
+    "require": ["babel-register", "babel-polyfill"],
     "babel": "inherit"
   }
 }
