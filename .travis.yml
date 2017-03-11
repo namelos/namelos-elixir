@@ -14,12 +14,12 @@ before_install:
   - nvm install $NODE_VERSION
 install:
   - mix deps.get
-  - npm install
+  - yarn install
 before_script:
   - mix do ecto.create, ecto.migrate
 script:
   - mix test
-  - npm test
+  - yarn test
 deploy:
   provider: heroku
   api_key:
