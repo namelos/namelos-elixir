@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { registerActions } from 'src/model/account'
+import { registerActions } from '../../model/account/account'
 
 const mapState = ({ account }) => ({ user: account.user })
 
