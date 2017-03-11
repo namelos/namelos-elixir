@@ -21,6 +21,9 @@ defmodule Namelos.Router do
     resources "/sessions", SessionController, only: [:create, :delete]
   end
 
+  forward "/graphql", Absinthe.Plug, schema: Namelos.Schema
+  forward "/graphiql", Absinthe.Plug.GraphiQL, schema: Namelos.Schema
+
   scope "/", Namelos do
     pipe_through :browser # Use the default browser stack
 
