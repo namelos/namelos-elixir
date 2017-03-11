@@ -8,6 +8,12 @@ export const REGISTER = {
   Failed: 'register/Register_Failed'
 }
 
+export const registerActions = {
+  requested: createAction(REGISTER.Requested),
+  succeeded: createAction(REGISTER.Succeeded),
+  failed: createAction(REGISTER.Failed)
+}
+
 const initialState = {
   user: {
     id: null,
@@ -22,12 +28,6 @@ export const account = (state = initialState, action) => {
     case REGISTER.Failed:     return { ...state, error: action.payload, isFetching: false }
     default:                  return state
   }
-}
-
-export const registerActions = {
-  requested: createAction(REGISTER.Requested),
-  succeeded: createAction(REGISTER.Succeeded),
-  failed: createAction(REGISTER.Failed)
 }
 
 const register = user =>
