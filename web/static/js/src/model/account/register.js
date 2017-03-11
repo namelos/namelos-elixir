@@ -3,9 +3,9 @@ import { call, put } from 'redux-saga/effects'
 import { createAction } from 'src/lib'
 
 export const REGISTER = {
-  Requested: 'register/Register_Requested',
-  Succeeded: 'register/Register_Succeeded',
-  Failed: 'register/Register_Failed'
+  Requested: 'register/Requested',
+  Succeeded: 'register/Succeeded',
+  Failed: 'register/Failed'
 }
 
 export const registerActions = {
