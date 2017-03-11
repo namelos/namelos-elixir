@@ -1,6 +1,6 @@
 import { createReducer } from 'src/lib'
-import { REGISTER } from './account'
-export { REGISTER, registerUser, registerActions } from './account'
+import { REGISTER } from './register'
+export { REGISTER, registerUser, registerActions } from './register'
 
 const initialState = {
   user: {
