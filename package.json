@@ -7,6 +7,7 @@
     "test": "NODE_PATH=web/static/js ava"
   },
   "dependencies": {
+    "aphrodite": "^1.2.0",
     "ava": "^0.18.2",
     "axios": "^0.15.3",
     "babel-core": "^6.23.1",
