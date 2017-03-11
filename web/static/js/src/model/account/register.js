@@ -14,7 +14,7 @@ export const registerActions = {
   failed: createAction(REGISTER.Failed)
 }
 
-const register = user =>
+export const register = user =>
   axios.post('/api/users', { user })
     .then(res => res.data)
 

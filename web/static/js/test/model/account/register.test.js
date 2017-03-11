@@ -1,6 +1,7 @@
 import test from 'ava'
 import { any } from 'src/model'
-import { account, registerActions } from 'src/model/account'
+import { account, register, registerActions, registerUser } from 'src/model/account'
+import { put, call } from 'redux-saga/effects'
 
 const validUser = { email: 'john@example.com', password: 'secret' }
 const validResponse = { id: 1, email: 'john@example.com' }
@@ -30,3 +31,16 @@ test('isFetching should be false after request failed', t =>
   t.is(succeededState.isFetching, false))
 test('should store exception after request failed', t =>
   t.deepEqual(failedState.error, errorResponse))
+
+test('register user', t => {
+  const generator = registerUser(registerActions.requested(validUser))
+
+  let next = generator.next()
+  t.deepEqual(next.value, call(register, validUser))
+
+  next = generator.next(validResponse)
+  t.deepEqual(next.value, put(registerActions.succeeded(validResponse)))
+
+  next = generator.throw(errorResponse)
+  t.deepEqual(next.value, put(registerActions.failed(errorResponse)))
+})
