@@ -1,6 +1,4 @@
 language: elixir
-node_js:
-  - "6"
 elixir:
   - 1.4.1
 otp_release:
@@ -8,6 +6,10 @@ otp_release:
 sudo: false
 addons:
   postgresql: '9.4'
+env:
+  - NODE_VERSION="7.7.2"
+before_install:
+  - nvm install $NODE_VERSION
 install:
   - npm install
 before_script:
