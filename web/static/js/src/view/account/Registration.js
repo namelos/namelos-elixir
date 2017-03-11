@@ -1,13 +1,11 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import { registerRequested } from 'src/model/account'
+import { registerActions } from 'src/model/account'
 
 const mapState = ({ account }) => ({ user: account.user })
-const mapDispatch = dispatch => bindActionCreators({ registerRequested }, dispatch)
 
-let RegistrationForm = ({ handleSubmit, registerRequested }) =>
+let RegistrationForm = ({ handleSubmit }) =>
   <form onSubmit={handleSubmit}>
     <p>Registration</p>
 
@@ -22,9 +20,9 @@ let RegistrationForm = ({ handleSubmit, registerRequested }) =>
 
 RegistrationForm = reduxForm({ form: 'registration' })(RegistrationForm)
 
-const Registration = ({ registerRequested }) => {
-  const handleSubmit = user => registerRequested(user)
+const Registration = ({ dispatch }) => {
+  const handleSubmit = user => dispatch(registerActions.requested(user))
   return <RegistrationForm onSubmit={handleSubmit} />
 }
 
-export default connect(mapState, mapDispatch)(Registration)
+export default connect(mapState)(Registration)

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { call, put } from 'redux-saga/effects'
+import { createAction } from 'src/lib'
 
 export const REGISTER = {
   Requested: 'register/Register_Requested',
@@ -17,15 +18,17 @@ const initialState = {
 export const account = (state = initialState, action) => {
   switch(action.type) {
     case REGISTER.Requested:  return { ...state, isFetching: true }
-    case REGISTER.Succeeded:  return { ...state, user: action.user, isFetching: false }
-    case REGISTER.Failed:     return { ...state, error: action.error, isFetching: false }
+    case REGISTER.Succeeded:  return { ...state, user: action.payload, isFetching: false }
+    case REGISTER.Failed:     return { ...state, error: action.payload, isFetching: false }
     default:                  return state
   }
 }
 
-export const registerRequested = user => ({ type: REGISTER.Requested, user })
-const registerSucceeded = user => ({ type: REGISTER.Succeeded, user })
-const registerFailed = error => ({ type: REGISTER.Failed, error })
+export const registerActions = {
+  requested: createAction(REGISTER.Requested),
+  succeeded: createAction(REGISTER.Succeeded),
+  failed: createAction(REGISTER.Failed)
+}
 
 const register = user =>
   axios.post('/api/users', { user })
@@ -33,10 +36,9 @@ const register = user =>
 
 export function* registerUser(action) {
   try {
-    const user = yield call(register, action.user)
-    yield put(registerSucceeded(user))
+    const user = yield call(register, action.payload)
+    yield put(registerActions.succeeded(user))
   } catch (error) {
-    yield put(registerFailed(error))
+    yield put(registerActions.failed(error))
   }
 }
-
