@@ -1,14 +1,20 @@
 language: elixir
+node_js:
+  - 7.6.0
 elixir:
-- 1.4.1
+  - 1.4.1
 otp_release:
   - 19.0
 sudo: false
 addons:
   postgresql: '9.4'
+install:
+  - npm install
 before_script:
   - mix do ecto.create, ecto.migrate
-script: mix test
+script:
+  - mix test
+  - npm test
 deploy:
   provider: heroku
   api_key:
