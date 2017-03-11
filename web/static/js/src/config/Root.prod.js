@@ -1,12 +1,13 @@
 import React from 'react'
 import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import { ApolloProvider } from 'react-apollo'
 import { Router, browserHistory } from 'react-router'
 import { reducer } from 'src/model'
+import { client } from 'src/config/client'
 import { routes } from 'src/config/routes'
 
 const store = createStore(reducer)
 
-export default () => <Provider store={store}>
+export default () => <ApolloProvider store={store} client={client}>
   <Router history={browserHistory} routes={routes} />
-</Provider>
+</ApolloProvider>

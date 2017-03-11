@@ -39,3 +39,6 @@ elm-stuff
 
 # Elm repl
 repl-temp-*
+
+# GraphQL Schema
+schema.json
