@@ -8,10 +8,13 @@ otp_release:
 sudo: false
 addons:
   postgresql: '9.4'
+install:
+  - npm install
 before_script:
   - mix do ecto.create, ecto.migrate
 script:
   - mix test
+  - npm test
 deploy:
   provider: heroku
   api_key:
