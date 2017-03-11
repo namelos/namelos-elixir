@@ -9,6 +9,7 @@ sudo: false
 addons:
   postgresql: '9.4'
 install:
+  - mix deps.get
   - npm install
 before_script:
   - mix do ecto.create, ecto.migrate
