@@ -23,7 +23,8 @@ const quoteMutation = gql`
 const QuotesApp = ({ data, mutate }) => {
   const handleSubmit = value => mutate({
     variables: { content: value.quote }
-  })
+  }).then(() => data.refetch())
+
   return <div>
     { data.quotes && <Quotes quotes={data.quotes}/> }
     <QuoteForm onSubmit={handleSubmit} />
