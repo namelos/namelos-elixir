@@ -3,7 +3,7 @@ import { Router, browserHistory } from 'react-router'
 import { ApolloProvider } from 'react-apollo'
 import { DevTools } from 'src/config/DevTools'
 import { routes } from 'src/config/routes'
-import { client } from 'src/config/client'
+import { client } from './apolloClient.js'
 import { configureStore } from 'src/config/configureStore'
 
 const store = configureStore()

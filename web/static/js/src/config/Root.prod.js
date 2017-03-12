@@ -3,7 +3,7 @@ import { createStore } from 'redux'
 import { ApolloProvider } from 'react-apollo'
 import { Router, browserHistory } from 'react-router'
 import { reducer } from 'src/model'
-import { client } from 'src/config/client'
+import { client } from './apolloClient.js'
 import { routes } from 'src/config/routes'
 
 const store = createStore(reducer)

@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import { saga } from 'src/model'
 import { reducer } from 'src/model'
 import { DevTools } from 'src/config/DevTools'
-import { client } from 'src/config/client'
+import { client } from './apolloClient.js'
 
 export const configureStore = initialState => {
   const sagaMiddleware = createSagaMiddleware()
