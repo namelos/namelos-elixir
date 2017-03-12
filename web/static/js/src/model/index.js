@@ -4,10 +4,7 @@ import { takeEvery } from 'redux-saga/effects'
 import { client } from 'src/config/apolloClient.js'
 import { createAction } from 'src/lib'
 import { counter } from 'src/model/counter'
-import {
-  account, registerUser, REGISTER,
-  loginUser, LOGIN
-} from './account'
+import { account, registerUser, REGISTER, loginUser, LOGIN } from './account'
 
 export const any = createAction('ANY')()
 
