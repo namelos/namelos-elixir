@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { post } from 'src/lib/httpClient'
 import { call, put } from 'redux-saga/effects'
 import { createAction } from 'src/lib'
 
@@ -15,8 +15,7 @@ export const loginActions = {
 }
 
 export const login = session => {
-  console.log('test')
-  return axios.post('/api/sessions', { session })
+  return post('/api/sessions', { session })
     .then(res => res.data);
 }
 

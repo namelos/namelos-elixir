@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { post } from 'src/lib/httpClient'
 import { call, put } from 'redux-saga/effects'
 import { createAction } from 'src/lib'
 
@@ -15,7 +15,7 @@ export const registerActions = {
 }
 
 export const register = user =>
-  axios.post('/api/users', { user })
+  post('/api/users', { user })
     .then(res => res.data)
 
 export function* registerUser(action) {
