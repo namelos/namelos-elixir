@@ -16,7 +16,7 @@ defmodule Namelos.SessionControllerTest do
     conn = post conn, session_path(conn, :create), %{session: %{email: user.email, password: user.password}}
     body = json_response(conn, 201)
 
-    assert body["jwt"]
+    assert body["token"]
     assert body["user"]
   end
 end

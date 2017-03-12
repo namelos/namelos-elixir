@@ -1,8 +1,8 @@
 defmodule Namelos.SessionView do
   use Namelos.Web, :view
 
-  def render("show.json", %{jwt: jwt, user: user}) do
-    %{jwt: jwt, user: user}
+  def render("show.json", %{token: token, user: user}) do
+    %{token: token, user: user}
   end
 
   def render("error.json", _) do
