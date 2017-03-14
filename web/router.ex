@@ -11,6 +11,7 @@ defmodule Namelos.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Namelos.Auth
   end
 
   scope "/api", Namelos do

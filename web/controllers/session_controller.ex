@@ -22,10 +22,10 @@ defmodule Namelos.SessionController do
   defp authenticate(%{"email" => email, "password" => password}) do
     user = Repo.get_by(User, email: String.downcase(email))
 
-      case check_password(user, password) do
-        true -> {:ok, user}
-        _ -> :error
-      end
+    case check_password(user, password) do
+      true -> {:ok, user}
+      _ -> :error
+    end
   end
 
   defp check_password(user, password) do
