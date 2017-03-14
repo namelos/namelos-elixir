@@ -1,6 +1,7 @@
 import { post } from 'src/lib/httpClient'
 import { call, put } from 'redux-saga/effects'
 import { createAction } from 'src/lib'
+import { setToken } from 'src/lib/storage'
 
 export const LOGIN = {
   Requested: 'login/Requested',
@@ -21,8 +22,9 @@ export const login = session => {
 
 export function* loginUser(action) {
   try {
-    const user = yield call(login, action.payload)
-    yield put(loginActions.succeeded(user))
+    const session = yield call(login, action.payload)
+    setToken(session.token)
+    yield put(loginActions.succeeded(session))
   } catch (error) {
     yield put(loginActions.failed(error))
   }
