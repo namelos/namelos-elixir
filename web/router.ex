@@ -17,9 +17,10 @@ defmodule Namelos.Router do
   scope "/api", Namelos do
     pipe_through :api
 
-    resources "/quotes", QuoteController
+    resources "/quotes", QuoteController, except: [:new, :edit]
     resources "/users", UserController, only: [:create]
     resources "/sessions", SessionController, only: [:create, :delete]
+    resources "/psots", PostController, except: [:new, :edit]
   end
 
   forward "/graphql", Absinthe.Plug, schema: Namelos.Schema
